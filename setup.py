@@ -35,7 +35,10 @@ install_requires = [
     # FIXME: Maybe should be in a mode?
     # qtconsole, pyserial
     #
-    "qtconsole==4.7.4",
+    # FIXME: For Python 3.5 compatibility, to be dropped after Mu v1.1 release,
+    # qtconsole < 5 and jupyter-client < 6.2 (issue #1444)
+    "jupyter-client>=4.1,<6.2",
+    "qtconsole==4.7.7",
     "pyserial==3.4",
     # `flake8` is actually a testing/packaging dependency that, among other
     # packages, brings in `pycodestyle` and `pyflakes` which are runtime
