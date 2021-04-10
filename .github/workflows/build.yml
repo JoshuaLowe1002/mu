@@ -38,13 +38,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           python make.py win64
-          dir dist/*.msi | rename-item -newname {  $_.name  -replace ".msi"," (64 bit).msi"  }
-          mv dist/*.msi upload/
-      - name: Build macOS
-        if: runner.os == 'macOS'
-        run: |
-          make macos
-          mv dist/*.dmg upload/
+          mv dist/ upload/
       - name: Upload Mu installer
         uses: actions/upload-artifact@v1
         with:
